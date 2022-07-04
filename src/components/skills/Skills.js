@@ -2,41 +2,51 @@ import { Box } from "@mui/system";
 import { Grid, Typography } from "@mui/material";
 import CardSkills from "./CardSkills";
 import { skills } from "./dataSkills";
+import { color_primary_light_1, color_primary_black } from "../../color";
 
-const Skills = ({matches}) => {
+const Skills = ({ matches }) => {
   return (
     <Box
+      id="skills"
       sx={{
         width: "100%",
-        padding:`${matches?"1rem":"5rem"}`,
-        marginTop: "2rem",
-        backgroundColor: "#b2dfdb",
-        borderRadius: ".5rem",
+        padding: `${matches ? "2rem" : "5rem"}`,
+        textAlign: "center",
+        backgroundColor: `${color_primary_light_1}`,
       }}
     >
-      <Typography
-        variant={`${matches?"h5":"h3"}`}
-        color="#004d40"
-        mb="1.5rem"
-        width="80%"
-        mx="auto"
-        borderBottom="5px solid #4caf50"
-        textAlign="center"
+      <Box
+        sx={{
+          width: `${matches ? "100%" : "70%"}`,
+          padding: `${matches ? "2rem" : "5rem"}`,
+          margin: "auto",
+        }}
       >
-       PROGRAMMING SKILLS
-      </Typography>
-      <Box mt={5}>
-        <Grid container spacing={5}>
-          {skills &&
-            skills.map((s) => (
-              <CardSkills
-                key={s.id}
-                title={s.title}
-                imgUrl={s.imgUrl}
-                valueRating={s.valueRating}
-              />
-            ))}
-        </Grid>
+        <Typography
+          variant={`${matches ? "h5" : "h3"}`}
+          color={`${color_primary_black}`}
+          mb="1.5rem"
+          width="80%"
+          mx="auto"
+          borderBottom={`5px solid ${color_primary_black}`}
+          textAlign="center"
+        >
+          PROGRAMMING SKILLS
+        </Typography>
+        <Box mt={5}>
+          <Grid container spacing={5}>
+            {skills &&
+              skills.map((s) => (
+                <CardSkills
+                  key={s.id}
+                  title={s.title}
+                  imgUrl={s.imgUrl}
+                  valueRating={s.valueRating}
+                  matches={matches}
+                />
+              ))}
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );

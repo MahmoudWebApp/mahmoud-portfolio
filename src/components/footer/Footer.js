@@ -1,72 +1,89 @@
+import { useState } from "react";
 import { Box } from "@mui/system";
 import { Typography, List, ListItem, ListItemIcon } from "@mui/material";
 
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import {
+  color_primary_black_1,
+  color_primary_black_2,
+  color_secondary_light_1,
+  color_yellow_black_3,
+} from "../../color";
 
 const Footer = ({ matches }) => {
   return (
     <Box
+      id="footer"
       sx={{
-        position:"fixed",
-        lef:"0",
-        bottom:"0",
-        height: `${matches ? "12rem" : "15rem"}`,
         width: "100%",
-        backgroundImage: "linear-gradient(to top, #004d40,#263238)",
-        clipPath: `${
-          matches
-            ? "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)"
-            : "polygon(0 50%, 100% 0%, 100% 100%, 0% 100%)"
-        }`,
-        padding: `${matches ? ".5rem" : "2rem"}`,
+        backgroundColor: `${color_primary_black_2}`,
+        padding: ".5rem",
+        hight: "10rem",
+        paddingRight: `${matches ? "1rem" : ".5rem"}`,
+        paddingLeft: `${matches ? "1rem" : ".5rem"}`,
       }}
     >
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: `${matches ? "center" : "flex-end"}`,
-          flexDirection:`${matches ? "column" : "row"}`,
+          justifyContent: "center",
+          flexDirection: `${matches ? "column" : "row"}`,
           width: "100%",
           gap: `${matches ? ".1rem" : "5rem"}`,
         }}
       >
         <Typography
-          variant={`${matches ? "h6" : "h2"}`}
-          color="#eceff1"
-          sx={{ fontFamily: "Roboto Slab" }}
+          variant={`${matches ? "h6" : "h4"}`}
+          sx={{
+            fontFamily: "Roboto Slab",
+
+            color: "#fff",
+          }}
         >
           CONTACT ME
         </Typography>
+
         <List>
           <ListItem>
             <ListItemIcon>
-              < PhoneAndroidIcon
-                sx={{ color: "#4caf50", fontSize: "1.5rem" }}
+              <PhoneAndroidIcon
+                sx={{ color: `${color_yellow_black_3}`, fontSize: "1.5rem" }}
               />
             </ListItemIcon>
-            <Typography variant="subtitle1" color="#607d8b">
+            <Typography
+              variant={`${matches ? "subtitle2" : "subtitle1"}`}
+              color={`${color_secondary_light_1}`}
+            >
               0933971101
             </Typography>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <AlternateEmailIcon sx={{ color: "#4caf50", fontSize: "1.5rem" }} />
+              <AlternateEmailIcon
+                sx={{ color: `${color_yellow_black_3}`, fontSize: "1.5rem" }}
+              />
             </ListItemIcon>
-            <Typography variant="subtitle1" color="#607d8b">
+            <Typography
+              variant={`${matches ? "subtitle2" : "subtitle1"}`}
+              color={`${color_secondary_light_1}`}
+            >
               mahmoud.eng732@gmail.com
             </Typography>
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <GitHubIcon
-                sx={{ color: "#4caf50", fontSize: "1.5rem" }}
+                sx={{ color: `${color_yellow_black_3}`, fontSize: "1.5rem" }}
               />
             </ListItemIcon>
-            <Typography variant="subtitle1" color="#607d8b">
-            https://github.com/MahmoudWebApp
+            <Typography
+              variant={`${matches ? "subtitle2" : "subtitle1"}`}
+              color={`${color_secondary_light_1}`}
+            >
+              https://github.com/MahmoudWebApp
             </Typography>
           </ListItem>
         </List>

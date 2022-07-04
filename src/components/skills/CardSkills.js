@@ -1,13 +1,13 @@
-import { Grid, Typography, Avatar, Rating ,Box} from "@mui/material";
+import { Grid, Typography, Avatar, Rating, Box } from "@mui/material";
+import { color_primary_black, color_secondary_black_1 } from "../../color";
 
-const CardSkills = ({ title, imgUrl, valueRating }) => {
+const CardSkills = ({ title, imgUrl, valueRating }, matches) => {
   return (
-    <Grid item xs={6} md={3}>
+    <Grid item xs={12} sm={6} md={3}>
       <Box
         sx={{
-          border: "1px solid #4caf50 ",
-          bgcolor: "#004d40",
-          padding: ".5rem",
+          border: `1px solid ${color_primary_black}`,
+          padding: `${matches ? ".1rem" : ".5rem"}`,
           borderRadius: "10px",
           display: "flex",
           flexDirection: "column",
@@ -17,9 +17,16 @@ const CardSkills = ({ title, imgUrl, valueRating }) => {
         <Avatar
           alt={title}
           src={imgUrl}
-          sx={{ width: 56, height: 56, bgcolor: "#fff" }}
+          sx={{
+            width: 56,
+            height: 56,
+            backgroundColor: "#fff",
+          }}
         />
-        <Typography variant="h6" color="#c8e6c9">
+        <Typography
+          variant={`${matches ? "subtitle1" : "h6"}`}
+          color={`${color_secondary_black_1}`}
+        >
           {title}
         </Typography>
         <Rating
